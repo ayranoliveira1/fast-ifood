@@ -1,6 +1,7 @@
 import { db } from "@/app/lib/prisma";
 import { notFound } from "next/navigation";
 import RestaurantImage from "../components/restaurant-image";
+import RestaurantInfo from "../components/restaurant-info";
 
 interface RestaurantPageProps {
   params: {
@@ -13,6 +14,21 @@ const RestaurantPgae = async ({ params: { id } }: RestaurantPageProps) => {
     where: {
       id,
     },
+    include: {
+      products: {
+        orderBy: {
+          name: "desc",
+        },
+      },
+      categories: {
+        orderBy: {
+          name: "asc",
+        },
+        include: {
+          Product: true,
+        },
+      },
+    },
   });
 
   if (!restaurant) {
@@ -22,6 +38,8 @@ const RestaurantPgae = async ({ params: { id } }: RestaurantPageProps) => {
   return (
     <div>
       <RestaurantImage restaurant={restaurant} />
+
+      <RestaurantInfo restaurant={restaurant} />
     </div>
   );
 };
