@@ -1,5 +1,6 @@
 import { db } from "@/app/lib/prisma";
 import { notFound } from "next/navigation";
+import RestaurantImage from "../components/restaurant-image";
 
 interface RestaurantPageProps {
   params: {
@@ -18,7 +19,11 @@ const RestaurantPgae = async ({ params: { id } }: RestaurantPageProps) => {
     return notFound();
   }
 
-  return <div>{restaurant.id}</div>;
+  return (
+    <div>
+      <RestaurantImage restaurant={restaurant} />
+    </div>
+  );
 };
 
 export default RestaurantPgae;
