@@ -24,9 +24,6 @@ const RestaurantPgae = async ({ params: { id } }: RestaurantPageProps) => {
         orderBy: {
           name: "asc",
         },
-        include: {
-          Product: true,
-        },
       },
     },
   });

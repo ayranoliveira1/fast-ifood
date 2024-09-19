@@ -10,11 +10,7 @@ interface RestaurantInfoProps {
   restaurant: Prisma.RestaurantGetPayload<{
     include: {
       products: true;
-      categories: {
-        include: {
-          Product: true;
-        };
-      };
+      categories: true;
     };
   }>;
 }
