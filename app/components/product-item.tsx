@@ -1,26 +1,22 @@
-import { Product } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 import Image from "next/image";
 import { calculateProduct, formatCurrency } from "../helpers/price";
 import { ArrowDownIcon } from "lucide-react";
 import Link from "next/link";
-import { db } from "../lib/prisma";
-import { notFound } from "next/navigation";
 
 interface ProductItemProps {
-  product: Product;
+  product: Prisma.ProductGetPayload<{
+    include: {
+      restaurant: {
+        select: {
+          name: true;
+        };
+      };
+    };
+  }>;
 }
 
-const ProductItem = async ({ product }: ProductItemProps) => {
-  const restaurant = await db.restaurant.findUnique({
-    where: {
-      id: product.restaurantId,
-    },
-  });
-
-  if (!restaurant) {
-    return notFound();
-  }
-
+const ProductItem = ({ product }: ProductItemProps) => {
   return (
     <Link className="w-[150px] min-w-[150px]" href={`/products/${product.id}`}>
       <div className="w-[150px] min-w-[150px] space-y-2">
@@ -58,7 +54,7 @@ const ProductItem = async ({ product }: ProductItemProps) => {
           </div>
 
           <span className="block text-sm text-muted-foreground">
-            {restaurant.name}
+            {product.restaurant.name}
           </span>
         </div>
       </div>
