@@ -1,5 +1,5 @@
-import ProductItem from "@/app/components/product-item";
 import { Prisma } from "@prisma/client";
+import CategoryRedirect from "./Category-route";
 
 interface CategoryInfoProps {
   Category: Prisma.CategoryGetPayload<{
@@ -16,7 +16,7 @@ const CategoryInfo = ({ Category }: CategoryInfoProps) => {
 
       <div className="flex flex-wrap items-center justify-center gap-9">
         {Category.Product.map((product) => (
-          <ProductItem key={product.id} product={product} />
+          <CategoryRedirect key={product.id} product={product} />
         ))}
       </div>
     </div>
