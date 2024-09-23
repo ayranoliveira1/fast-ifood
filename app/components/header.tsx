@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
-import { Button } from "./ui/button";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import SideMenu from "./side-menu";
 
 const Header = () => {
   return (
@@ -9,13 +12,16 @@ const Header = () => {
       <Link href="/">
         <Image src="/logo.png" alt="Logo" width={100} height={30} />
       </Link>
-      <Button
-        size="icon"
-        variant="outline"
-        className="border-none bg-transparent"
-      >
-        <MenuIcon></MenuIcon>
-      </Button>
+
+      <Sheet>
+        <SheetTrigger>
+          <MenuIcon />
+        </SheetTrigger>
+
+        <SheetContent>
+          <SideMenu />
+        </SheetContent>
+      </Sheet>
     </header>
   );
 };
