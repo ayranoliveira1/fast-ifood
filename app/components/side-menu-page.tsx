@@ -15,16 +15,18 @@ const MenuPage = () => {
       return setIsStart(true);
     }
 
+    setIsStart(false);
+
     if (window.location.pathname === "/orders") {
       return setIsOrders(true);
     }
+
+    setIsOrders(false);
 
     if (window.location.pathname === "/favorites") {
       return setIsFavorites(true);
     }
 
-    setIsStart(false);
-    setIsOrders(false);
     setIsFavorites(false);
   }
 
@@ -33,7 +35,7 @@ const MenuPage = () => {
   }, []);
 
   return (
-    <div className="mt-6 space-y-3">
+    <div className="mt-6 flex flex-col gap-3">
       <Link href="/">
         <Button
           variant="ghost"
@@ -44,21 +46,25 @@ const MenuPage = () => {
         </Button>
       </Link>
 
-      <Button
-        variant="ghost"
-        className={`w-full justify-start gap-3 rounded-3xl ${isOrders ? "bg-primary text-white" : ""}`}
-      >
-        <ScrollText size="16" />
-        Meus Pedidos
-      </Button>
+      <Link href="/orders">
+        <Button
+          variant="ghost"
+          className={`w-full justify-start gap-3 rounded-3xl ${isOrders ? "bg-primary text-white" : ""}`}
+        >
+          <ScrollText size="16" />
+          Meus Pedidos
+        </Button>
+      </Link>
 
-      <Button
-        variant="ghost"
-        className={`w-full justify-start gap-3 rounded-3xl ${isFavorites ? "bg-primary text-white" : ""}`}
-      >
-        <Heart size="16" />
-        Restaurantes Favoritos
-      </Button>
+      <Link href="/orders">
+        <Button
+          variant="ghost"
+          className={`w-full justify-start gap-3 rounded-3xl ${isFavorites ? "bg-primary text-white" : ""}`}
+        >
+          <Heart size="16" />
+          Restaurantes Favoritos
+        </Button>
+      </Link>
     </div>
   );
 };
