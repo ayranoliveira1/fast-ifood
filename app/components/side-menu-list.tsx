@@ -2,6 +2,7 @@ import { db } from "../lib/prisma";
 import MenuCategory from "./side-menu-category";
 
 const MenuList = async () => {
+  // Fetch all categories from the database
   const categories = await db.category.findMany({});
 
   return (
