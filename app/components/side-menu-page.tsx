@@ -10,6 +10,7 @@ const MenuPage = () => {
   const [isOrders, setIsOrders] = useState<boolean>(false);
   const [isFavorites, setIsFavorites] = useState<boolean>(false);
 
+  // Handle the path to set the active menu
   function handlepath() {
     if (window.location.pathname === "/") {
       return setIsStart(true);
