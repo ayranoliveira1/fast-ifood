@@ -2,6 +2,7 @@ import { db } from "../lib/prisma";
 import CategoryItem from "./category-item";
 
 const CategotyList = async () => {
+  // Fetch all categories from the database
   const categories = await db.category.findMany({});
 
   return (
