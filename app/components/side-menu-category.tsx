@@ -1,6 +1,7 @@
 import { Category } from "@prisma/client";
 import Link from "next/link";
 
+// Define the MenuCategoryProps interface
 interface MenuCategoryProps {
   category: Pick<Category, "name" | "id">;
 }
