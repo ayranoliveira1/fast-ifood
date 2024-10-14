@@ -2,70 +2,46 @@
 
 import { Heart, Home, ScrollText } from "lucide-react";
 import { Button } from "./ui/button";
-import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const MenuPage = () => {
-  const [isStart, setIsStart] = useState<boolean>(false);
-  const [isOrders, setIsOrders] = useState<boolean>(false);
-  const [isFavorites, setIsFavorites] = useState<boolean>(false);
-
-  // Handle the path to set the active menu
-  function handlepath() {
-    if (window.location.pathname === "/") {
-      return setIsStart(true);
-    }
-
-    setIsStart(false);
-
-    if (window.location.pathname === "/orders") {
-      return setIsOrders(true);
-    }
-
-    setIsOrders(false);
-
-    if (window.location.pathname === "/favorites") {
-      return setIsFavorites(true);
-    }
-
-    setIsFavorites(false);
-  }
-
-  useEffect(() => {
-    handlepath();
-  }, []);
+  const pathname = usePathname();
 
   return (
     <div className="mt-6 flex flex-col gap-3">
-      <Link href="/">
-        <Button
-          variant="ghost"
-          className={`w-full justify-start gap-3 rounded-3xl ${isStart ? "bg-primary text-white" : ""}`}
-        >
+      <Button
+        variant={pathname === "/" ? "destructive" : "ghost"}
+        className="w-full justify-start gap-3 rounded-3xl"
+        asChild
+      >
+        <Link href="/">
           <Home size="16" />
           Início
-        </Button>
-      </Link>
+        </Link>
+      </Button>
 
-      <Link href="/orders">
-        <Button
-          variant="ghost"
-          className={`w-full justify-start gap-3 rounded-3xl ${isOrders ? "bg-primary text-white" : ""}`}
-        >
+      <Button
+        variant={pathname === "/orders" ? "destructive" : "ghost"}
+        className="w-full justify-start gap-3 rounded-3xl"
+        asChild
+      >
+        <Link href="/orders">
           <ScrollText size="16" />
           Meus Pedidos
-        </Button>
-      </Link>
+        </Link>
+      </Button>
 
-      <Link href="/orders">
-        <Button
-          variant="ghost"
-          className={`w-full justify-start gap-3 rounded-3xl ${isFavorites ? "bg-primary text-white" : ""}`}
-        >
+      <Button
+        variant={pathname === "/favorites" ? "destructive" : "ghost"}
+        className="w-full justify-start gap-3 rounded-3xl"
+        asChild
+      >
+        <Link href="/favorites">
           <Heart size="16" />
           Restaurantes Favoritos
-        </Button>
-      </Link>
+        </Link>
+      </Button>
     </div>
   );
 };
