@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const MenuPage = () => {
+  // pegar o pathname da página atual
   const pathname = usePathname();
 
   return (
