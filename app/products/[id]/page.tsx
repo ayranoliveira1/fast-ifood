@@ -10,6 +10,7 @@ interface ProductPageProps {
 }
 
 const ProductPage = async ({ params: { id } }: ProductPageProps) => {
+  // Fetch the product from the database
   const product = await db.product.findUnique({
     where: {
       id,
