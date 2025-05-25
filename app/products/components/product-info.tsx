@@ -34,6 +34,7 @@ const ProductDetails = ({
 }: ProductDetailsProps) => {
   const [quantity, setQuantity] = useState(1);
 
+  // Calculate the total price of the product based on the quantity
   const handleIncreseQuantity = () => {
     setQuantity((prev) => prev + 1);
   };
