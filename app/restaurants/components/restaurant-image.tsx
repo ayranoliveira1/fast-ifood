@@ -17,6 +17,7 @@ const RestaurantImage = ({ restaurant }: RestaurantImageProps) => {
 
   const route = useRouter();
 
+  // Handle favorite button click
   const handleFavorite = () => {
     setIsFavorite(!isFavorite);
   };
