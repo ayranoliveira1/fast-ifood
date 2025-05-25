@@ -15,6 +15,7 @@ interface RestaurantImageProps {
 const RestaurantImage = ({ restaurant }: RestaurantImageProps) => {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
+  // Get the router instance
   const route = useRouter();
 
   // Handle favorite button click
