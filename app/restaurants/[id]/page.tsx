@@ -10,6 +10,7 @@ interface RestaurantPageProps {
 }
 
 const RestaurantPgae = async ({ params: { id } }: RestaurantPageProps) => {
+  // Fetch restaurant data from the database
   const restaurant = await db.restaurant.findUnique({
     where: {
       id,
