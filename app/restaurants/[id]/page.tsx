@@ -28,6 +28,7 @@ const RestaurantPgae = async ({ params: { id } }: RestaurantPageProps) => {
     },
   });
 
+  // Check if restaurant exists
   if (!restaurant) {
     return notFound();
   }
