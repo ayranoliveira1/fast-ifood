@@ -9,6 +9,7 @@ import { db } from "./lib/prisma";
 import RestaurantList from "./components/restaurant-list";
 
 const Home = async () => {
+  // Fetch products with a discount percentage greater than or equal to 0
   const products = await db.product.findMany({
     where: {
       discountPercentage: {
