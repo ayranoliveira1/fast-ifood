@@ -46,6 +46,7 @@ const RestaurantInfo = ({ restaurant }: RestaurantInfoProps) => {
               <BikeIcon size={14} />
             </div>
 
+            {/* Display delivery fee or free message */}
             {Number(restaurant.deliveryFee) > 0 ? (
               <span className="text-sm font-semibold">
                 {formatCurrency(Number(restaurant.deliveryFee))}
