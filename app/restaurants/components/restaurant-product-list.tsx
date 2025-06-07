@@ -1,6 +1,7 @@
 import { Product } from "@prisma/client";
 import RestaurantProductItem from "./restaurant-product-item";
 
+// Props for the product list component
 interface ProductListProps {
   products: Product[];
 }
