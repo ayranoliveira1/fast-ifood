@@ -19,7 +19,7 @@ const RestaurantProductItem = ({ product }: ProductItemProps) => {
             fill
             className="obg-cover rounded-lg shadow-md"
           />
-
+          {/* Display discount percentage if applicable */}
           {product.discountPercentage > 0 && (
             <div className="absolute left-2 top-2 flex items-center gap-[2px] rounded-full bg-primary px-2 py-[2px] text-white">
               <ArrowDownIcon size={12} />
