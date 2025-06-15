@@ -3,6 +3,7 @@ import { LogIn } from "lucide-react";
 import MenuList from "./side-menu-list";
 import MenuPage from "./side-menu-page";
 
+// SideMenu component that displays a menu with login option and menu items
 const SideMenu = () => {
   return (
     <div className="">
