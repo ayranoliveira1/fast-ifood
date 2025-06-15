@@ -4,6 +4,8 @@ declare global {
   var cachedPrisma: PrismaClient;
 }
 
+// Prisma Client Initialization
+// This ensures that the Prisma Client is reused in development mode to avoid exhausting database connections.
 let prisma: PrismaClient;
 if (process.env.NODE_ENV === "production") {
   prisma = new PrismaClient();
