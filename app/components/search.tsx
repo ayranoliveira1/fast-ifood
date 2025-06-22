@@ -2,6 +2,7 @@ import { SearchIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 
+// Search component that provides a search input field and a search button
 const Search = () => {
   return (
     <div className="flex gap-2">
