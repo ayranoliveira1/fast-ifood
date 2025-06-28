@@ -5,6 +5,7 @@ interface DiscountPercentageProps {
   product: Pick<Product, "discountPercentage">;
 }
 
+// Component to display the discount percentage of a product
 const DiscountPercentage = ({ product }: DiscountPercentageProps) => {
   return (
     <div className=" flex items-center gap-[2px] rounded-full bg-primary px-2 py-[2px] text-white">
