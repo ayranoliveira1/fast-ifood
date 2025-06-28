@@ -9,6 +9,7 @@ interface RestaurantItemProps {
   restaurant: Restaurant;
 }
 
+// Restaurant item component
 const RestaurantItem = ({ restaurant }: RestaurantItemProps) => {
   return (
     <Link
