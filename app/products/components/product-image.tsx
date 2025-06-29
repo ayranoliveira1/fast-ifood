@@ -6,6 +6,7 @@ import { ChevronLeftIcon } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+// Component to display the product image with a back button
 interface ProductImageProps {
   product: Pick<Product, "name" | "imageUrl">;
 }
