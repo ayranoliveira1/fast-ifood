@@ -25,6 +25,7 @@ const ProductPage = async ({ params: { id } }: ProductPageProps) => {
     return notFound();
   }
 
+  // Fetch complementary products (juices) from the same restaurant
   const juices = await db.product.findMany({
     where: {
       category: {
